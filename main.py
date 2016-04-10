@@ -18,6 +18,12 @@ def wechat_auth():
 		try:
 			
 
+		try:
+			check_signature(token, signature, timestamp, nonce)
+		except InvalidSignatureException:
+			abort(403)
+		return echostr
+
 if __name__ == '__main__':
 	server_ip = '0.0.0.0'
 	server_port = 80
