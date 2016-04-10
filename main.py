@@ -13,8 +13,9 @@ def wechat_auth():
 		timestamp = query.get('timestamp', '')
 		nonce = query.get('nonce', '')
 		echostr = query.get('echostr', '')
+		print(signature)
 
 if __name__ == '__main__':
 	server_ip = '0.0.0.0'
-	server_port = 8000
+	server_port = 80
 	app.run(host=server_ip, port=server_port, debug=True)
