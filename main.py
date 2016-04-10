@@ -15,9 +15,7 @@ def wechat_auth():
 		nonce = query.get('nonce', '')
 		echostr = query.get('echostr', '')
 		print(signature)
-		try:
 			
-
 		try:
 			check_signature(token, signature, timestamp, nonce)
 		except InvalidSignatureException:
