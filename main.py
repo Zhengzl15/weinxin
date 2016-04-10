@@ -1,21 +1,22 @@
 from flask import Flask
 from flask import abort
 from flask import redirect
+from flask import request
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-	return '<h1>Hello World!</h1>'
-
-@app.route('/user/<name>')
-def sayHello(name):
-	if name == 'baidu':
-		return redirect('http://www.baidu.com')
-	elif name == 'NO':
-		return abort(404)
-
-		return '<h1> Hello,%s </h1>' % name
+@app.route('/', methods = ['GET', 'POST'] )
+def wechat_auth():
+	if request.method == 'GET':
+		token = 'zzlfoo'
+		query = request.args
+		signature = query.get('signature', '')
+		timestamp = query.get('timestamp', '')
+		nonce = query.get('nonce', '')
+		echostr = query.get('echostr', '')
+		print(signature)
+		try:
+			
 
 if __name__ == '__main__':
 	server_ip = '0.0.0.0'
