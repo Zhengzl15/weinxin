@@ -1,6 +1,12 @@
-from flask import Flask
-from flask import abort
-from flask import redirect
+
+from __future__ import absolute_import, unicode_literals
+import os
+from flask import Flask, request, abort, render_template
+from wechatpy.crypto import WeChatCrypto
+from wechatpy import parse_message, create_reply
+from wechatpy.utils import check_signature
+from wechatpy.exceptions import InvalidSignatureException
+from wechatpy.exceptions import InvalidAppIdException
 
 app = Flask(__name__)
 
